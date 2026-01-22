@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Story – UNSEEN | Quiet Confidence Redefined</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <meta name="description"
+        content="Discover the story behind Azmaraè. Born from a desire to redefine quiet confidence through intentional design and mindful living." />
+
+    <style>
+        :root {
+            --text: #1a1a1a;
+            --muted: #666666;
+            --primary: #1a1a1a;
+            --accent: #b8860b;
+            --gold-light: #fffaf0;
+            --gold-medium: #ffefc6;
+            --gold-dark: #e6c36c;
+            --card-bg: rgba(255, 255, 255, 0.92);
+            --header-bg: rgba(255, 255, 255, 0.98);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #fffef5;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(255, 248, 220, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 245, 200, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 250, 230, 0.15) 0%, transparent 50%);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            border-bottom: 1px solid rgba(230, 204, 128, 0.15);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--header-bg);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Azmarae Logo - BLACK */
+        .logo {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-weight: 500;
+            font-size: 1.8rem;
+            letter-spacing: 0.25em;
+            text-decoration: none;
+            color: #000000;
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.4s ease;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            color: #000000;
+            transform: translateY(-2px);
+        }
+
+        .logo:hover::before {
+            border-color: rgba(184, 134, 11, 0.3);
+            box-shadow: 0 5px 20px rgba(184, 134, 11, 0.1);
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+            font-weight: 400;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #b8860b, #d4af37);
+            transition: width 0.4s ease;
+        }
+
+        nav a:hover {
+            color: #b8860b;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .about-hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(255, 248, 220, 0.03) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .unseen-title {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: 5rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            margin-bottom: 2rem;
+            position: relative;
+            line-height: 1.1;
+        }
+
+        .unseen-title span {
+            display: inline-block;
+            background: linear-gradient(135deg, #b8860b 0%, #d4af37 50%, #f5e8a8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .unseen-title span::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            animation: lineExpand 2s ease-out forwards;
+        }
+
+        @keyframes lineExpand {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+
+            to {
+                width: 200px;
+                opacity: 1;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--muted);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-style: italic;
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 6rem 2rem;
+            position: relative;
+            background: linear-gradient(to bottom, transparent, rgba(255, 250, 240, 0.3) 10%, transparent);
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 0 auto 4rem;
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            position: relative;
+            display: block;
+            width: fit-content;
+            color: #b8860b;
+            font-style: italic;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .story-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .story-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(184, 134, 11, 0.08);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .story-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #b8860b, #d4af37, #b8860b);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .story-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            width: 80px;
+            height: 80px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .story-card:hover .card-icon {
+            transform: scale(1.1);
+        }
+
+        .story-card h3 {
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.1em;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #b8860b;
+        }
+
+        .story-card p {
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Values Section */
+        .values-section {
+            max-width: 1000px;
+            margin: 6rem auto;
+            padding: 5rem 4rem;
+            background: linear-gradient(135deg,
+                    rgba(255, 248, 220, 0.3) 0%,
+                    rgba(255, 245, 200, 0.2) 50%,
+                    rgba(255, 250, 240, 0.1) 100%);
+            border-radius: 30px;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            backdrop-filter: blur(5px);
+        }
+
+        .value-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 4rem auto 0;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(184, 134, 11, 0.08);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .value-card i {
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+        }
+
+        .value-card h3 {
+            color: #b8860b;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--accent), #d4af37);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            font-weight: 500;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(184, 134, 11, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid rgba(184, 134, 11, 0.3);
+        }
+
+        .btn-outline:hover {
+            background: rgba(184, 134, 11, 0.05);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 6rem 2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(to bottom, transparent, rgba(255, 250, 240, 0.4) 50%, transparent);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 4rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin-top: 4rem;
+        }
+
+        footer .socials {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        footer .socials a {
+            color: var(--text);
+            transition: all 0.3s ease;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            font-size: 1rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        footer .socials a:hover {
+            color: #b8860b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(184, 134, 11, 0.1);
+            border-color: #d4af37;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .azmarae-title {
+                font-size: 3.5rem;
+                letter-spacing: 0.15em;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+                letter-spacing: 0.2em;
+            }
+
+            nav {
+                gap: 1.5rem;
+            }
+
+            .story-grid,
+            .value-cards {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .values-section {
+                padding: 3rem 2rem;
+                margin: 4rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .azmarae-title {
+                font-size: 2.5rem;
+                letter-spacing: 0.1em;
+            }
+
+            .about-hero {
+                padding: 3rem 1rem;
+            }
+
+            header {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .story-card,
+            .value-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="Home.html" class="logo">UNSEEN</a>
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="Shop.html">Shop</a>
+            <a href="About.html" style="color: #b8860b;">About</a>
+            <a href="Contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <div class="hero-content">
+                <h1 class="azmarae-title"><span>UNSEEN</span></h1>
+                <p class="hero-subtitle">
+                    More than a name — a philosophy of becoming. Where quiet confidence meets intentional design,
+                    and mindful living becomes an art form. UNSEEN's identity is rooted in balance—softness with
+                    strength,
+                    structure with flow.
+                </p>
+            </div>
+        </section>
+
+        <section class="story-section">
+            <h2 class="section-title">OUR STORY</h2>
+            <p
+                style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem; line-height: 1.8; color: var(--muted);">
+                UNSEEN was born from a quiet realization: true luxury isn't loud. It's in the subtle details,
+                the thoughtful choices, the spaces between words. We create for those who understand that the most
+                powerful statements are often the quietest.
+            </p>
+
+            <div class="story-grid">
+                <div class="story-card">
+                    <div class="card-icon"><i class="fas fa-seedling"></i></div>
+                    <h3>The Beginning</h3>
+                    <p>Born from a desire to create meaningful objects that speak to the soul, not just the senses.</p>
+                </div>
+                <div class="story-card">
+                    <div class="card-icon"><i class="fas fa-gem"></i></div>
+                    <h3>Our Philosophy</h3>
+                    <p>Every piece is a balance of form and function, designed to evolve with you over time.</p>
+                </div>
+                <div class="story-card">
+                    <div class="card-icon"><i class="fas fa-hand-peace"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>To redefine luxury through quiet confidence and intentional design that lasts.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <h2 class="section-title">OUR VALUES</h2>
+            <div class="value-cards">
+                <div class="value-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Intentionality</h3>
+                    <p>Every design choice serves a purpose. Nothing is arbitrary.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Quality</h3>
+                    <p>Crafted to last, designed to evolve with you.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Mindfulness</h3>
+                    <p>Creating with awareness of impact and intention.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-infinity"></i>
+                    <h3>Timelessness</h3>
+                    <p>Designs that transcend trends and seasons.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2 style="font-size: 2rem; margin-bottom: 1.5rem; font-weight: 300; color: #b8860b; font-style: italic;">
+                JOIN OUR STORY</h2>
+            <p style="color: var(--muted); margin-bottom: 3rem; font-size: 1.1rem;">
+                Become part of a community that values quiet confidence and intentional design.
+            </p>
+            <a href="Shop.html" class="btn">Explore Collections</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 UNSEEN. All rights reserved.</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; font-style: italic;">Quiet confidence, redefined.
+        </p>
+
+    </footer>
+
+    <script>
+        // Animate cards on scroll
+        const cards = document.querySelectorAll('.story-card, .value-card');
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 200);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            cardObserver.observe(card);
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                } else {
+                    window.location.href = targetId;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop – UNSEEN | Intentional Design Collections</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <meta name="description"
+        content="Discover UNSEEN's curated collections. Timeless pieces designed with intention, crafted for quiet confidence." />
+
+    <style>
+        :root {
+            --text: #1a1a1a;
+            --muted: #666666;
+            --primary: #1a1a1a;
+            --accent: #b8860b;
+            --gold-light: #fffaf0;
+            --gold-medium: #ffefc6;
+            --gold-dark: #e6c36c;
+            --card-bg: rgba(255, 255, 255, 0.92);
+            --header-bg: rgba(255, 255, 255, 0.98);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #fffef5;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(255, 248, 220, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 245, 200, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 250, 230, 0.15) 0%, transparent 50%);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            border-bottom: 1px solid rgba(230, 204, 128, 0.15);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--header-bg);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-weight: 500;
+            font-size: 1.8rem;
+            letter-spacing: 0.25em;
+            text-decoration: none;
+            color: #000000;
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.4s ease;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            color: #000000;
+            transform: translateY(-2px);
+        }
+
+        .logo:hover::before {
+            border-color: rgba(184, 134, 11, 0.3);
+            box-shadow: 0 5px 20px rgba(184, 134, 11, 0.1);
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+            font-weight: 400;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #b8860b, #d4af37);
+            transition: width 0.4s ease;
+        }
+
+        nav a:hover {
+            color: #b8860b;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Shop Hero */
+        .shop-hero {
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shop-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(255, 248, 220, 0.03) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .shop-hero h1 {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .shop-hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, #b8860b, #d4af37);
+            animation: lineExpand 2s ease-out;
+        }
+
+        @keyframes lineExpand {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100px;
+            }
+        }
+
+        .shop-hero p {
+            font-size: 1.2rem;
+            color: var(--muted);
+            max-width: 600px;
+            line-height: 1.6;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        /* Collections Grid */
+        .collections-section {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            position: relative;
+            display: block;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            color: #b8860b;
+            font-style: italic;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .collection-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            opacity: 0;
+            transform: translateY(30px);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(184, 134, 11, 0.08);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .collection-image {
+            height: 300px;
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.1), rgba(212, 175, 55, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b8860b;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .collection-card:nth-child(2) .collection-image {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(245, 232, 168, 0.05));
+        }
+
+        .collection-card:nth-child(3) .collection-image {
+            background: linear-gradient(135deg, rgba(230, 195, 108, 0.1), rgba(255, 245, 200, 0.05));
+        }
+
+        .collection-content {
+            padding: 2.5rem;
+        }
+
+        .collection-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: #b8860b;
+        }
+
+        .collection-description {
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .collection-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #b8860b;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .collection-card:hover .collection-link {
+            transform: translateX(10px);
+            color: #d4af37;
+        }
+
+        /* Coming Soon Banner */
+        .coming-soon-banner {
+            max-width: 1000px;
+            margin: 6rem auto;
+            padding: 5rem 4rem;
+            background: linear-gradient(135deg,
+                    rgba(255, 248, 220, 0.3) 0%,
+                    rgba(255, 245, 200, 0.2) 50%,
+                    rgba(255, 250, 240, 0.1) 100%);
+            border-radius: 30px;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            backdrop-filter: blur(5px);
+        }
+
+        .banner-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .banner-icon {
+            font-size: 3rem;
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .banner-title {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            color: #b8860b;
+        }
+
+        .banner-text {
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 4rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin-top: 4rem;
+        }
+
+        footer .socials {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        footer .socials a {
+            color: var(--text);
+            transition: all 0.3s ease;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            font-size: 1rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        footer .socials a:hover {
+            color: #b8860b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(184, 134, 11, 0.1);
+            border-color: #d4af37;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .shop-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .collections-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .collection-image {
+                height: 250px;
+            }
+
+            .collection-content {
+                padding: 2rem;
+            }
+
+            .coming-soon-banner {
+                padding: 3rem 2rem;
+                margin: 4rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+                letter-spacing: 0.2em;
+            }
+
+            nav {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .shop-hero h1 {
+                font-size: 2rem;
+            }
+
+            .shop-hero {
+                padding: 3rem 1rem;
+            }
+
+            .collection-content {
+                padding: 1.5rem;
+            }
+
+            .banner-icon {
+                font-size: 2.5rem;
+            }
+
+            header {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="Home.html" class="logo">UNSEEN </a>
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="Shop.html" style="color: #b8860b;">Shop</a>
+            <a href="About.html">About</a>
+            <a href="Contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="shop-hero">
+            <h1>Our Collections</h1>
+            <p>Explore timeless pieces designed with intention, crafted for quiet confidence.</p>
+        </section>
+
+        <section class="collections-section">
+            <h2 class="section-title">CURATED COLLECTIONS</h2>
+            <div class="collections-grid">
+                <div class="collection-card">
+                    <div class="collection-image">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="collection-content">
+                        <h3 class="collection-title">Quiet Confidence</h3>
+                        <p class="collection-description">
+                            Minimalist designs that speak through subtlety. For those who understand that true power
+                            doesn't need volume.
+                        </p>
+                        <span class="collection-link">
+                            Coming Soon <i class="fas fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="collection-card">
+                    <div class="collection-image">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <div class="collection-content">
+                        <h3 class="collection-title">Timeless Pieces</h3>
+                        <p class="collection-description">
+                            Crafted to evolve with you. Designs that become more meaningful with time, transcending
+                            trends and seasons.
+                        </p>
+                        <span class="collection-link">
+                            Coming Soon <i class="fas fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="collection-card">
+                    <div class="collection-image">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="collection-content">
+                        <h3 class="collection-title">Mindful Living</h3>
+                        <p class="collection-description">
+                            Objects that encourage presence and intention. Designed to enhance your daily rituals and
+                            mindful moments.
+                        </p>
+                        <span class="collection-link">
+                            Coming Soon <i class="fas fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="coming-soon-banner">
+            <div class="banner-content">
+                <div class="banner-icon">
+                    <i class="fas fa-sparkles"></i>
+                </div>
+                <h3 class="banner-title">Stay Tuned, Collections Coming Soon</h3>
+                <p class="banner-text">
+                    We're currently working on new pieces that embody our philosophy of quiet confidence and intentional
+                    design.
+                    Sign up for our newsletter to be the first to know about upcoming launches.
+                </p>
+                <a href="Home.html#newsletter" class="collection-link">
+                    Join Waitlist <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 UNSEEN. All rights reserved.</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; font-style: italic;">Quiet confidence, redefined.
+        </p>
+
+    </footer>
+
+    <script>
+        // Animate cards on scroll
+        const cards = document.querySelectorAll('.collection-card');
+
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 200);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            cardObserver.observe(card);
+        });
+    </script>
+</body>
+
+</html>
